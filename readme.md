@@ -1,6 +1,22 @@
 eslint-plugin-parse
 ===
 
+ESLint plugin for working with [Parse](https://parse.com/).
+
+
+# Installation
+
+Install [ESLint](https://www.github.com/eslint/eslint) either locally or globally.
+```
+$ npm install eslint
+```
+
+If you installed `ESLint` globally, you have to install Parse plugin globally too. Otherwise, install it locally.
+```
+$ npm install eslint-plugin-parse
+```
+
+
 ## Configuration
 
 Add to `plugins` section `parse` on `.eslintrc`.
