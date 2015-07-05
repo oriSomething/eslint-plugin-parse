@@ -1,0 +1,11 @@
+{
+  "ecmaFeatures": {
+    "templateStrings": true
+  },
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "global-strict": [0]
+  }
+}

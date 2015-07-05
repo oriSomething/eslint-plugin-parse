@@ -1,0 +1,10 @@
+.tmp/
+node_modules/
+tests/
+tmp/
+
+.DS_Store
+.editorconfig
+.eslintrc
+.git
+.npmignore

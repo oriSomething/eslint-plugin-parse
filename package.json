@@ -1,0 +1,33 @@
+{
+    "name": "eslint-plugin-parse",
+    "version": "0.0.1",
+    "description": "ESLint rules for Parse",
+    "author": "Ori Livni",
+    "license": "MIT",
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/HappySale/eslint-plugin-parse"
+    },
+    "main": "index.js",
+    "directories": {
+        "doc": "docs",
+        "test": "tests"
+    },
+    "scripts": {
+        "test": "mocha tests --recursive"
+    },
+    "peerDependencies": {
+        "eslint": ">=0.8.1"
+    },
+    "devDependencies": {
+        "eslint": "^0.24.0",
+        "eslint-tester": "^0.8.2",
+        "mocha": "^2.2.5"
+    },
+    "keywords": [
+        "eslint-plugin",
+        "esintplugin",
+        "parse",
+        "eslint"
+    ]
+}
