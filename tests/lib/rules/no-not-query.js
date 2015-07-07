@@ -38,6 +38,14 @@ eslintTester.addRuleTest("lib/rules/no-not-query", {
                 type: "Identifier"
             }]
         }, {
+            code: `
+                query.doesNotExist(someVar);
+            `,
+            errors: [{
+                message: "`Parse.Query#doesNotExist()` it's unindexable query that can cause timeouts",
+                type: "Identifier"
+            }]
+        }, {
             code: `query.doesNotExist('someKey');`,
             errors: [{
                 message: "`Parse.Query#doesNotExist()` it's unindexable query that can cause timeouts",

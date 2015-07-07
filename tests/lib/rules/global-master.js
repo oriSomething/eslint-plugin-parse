@@ -28,17 +28,9 @@ eslintTester.addRuleTest("lib/rules/global-master", {
                         });
                 `
         }, {
-            code: `
-                    new Parse.Query("_User")
-                        .get("123456789")
-                        .then(function(user) {
-                            return user.save({
-                                "name": "another name"
-                            }, {
-                                useMasterKey: true
-                            });
-                        });
-                `
+            code: `useMasterKey();`
+        }, {
+            code: `obj.useMasterKey();`
         }
     ],
 

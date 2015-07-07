@@ -27,6 +27,8 @@ eslintTester.addRuleTest("lib/rules/save-with-master", {
             code: "item.save(null, { useMasterKey: true })"
         }, {
             code: "item.save({ title: 'A Title' }, { useMasterKey: true })"
+        }, {
+            code: "item.set({ useMasterKey: true });"
         }
     ],
 

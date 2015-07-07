@@ -51,6 +51,12 @@ eslintTester.addRuleTest("lib/rules/no-slow-query", {
                 type: "Identifier"
             }]
         }, {
+            code: `query.doesNotExist(someVar);`,
+            errors: [{
+                message: "`Parse.Query#doesNotExist()` it's a slow query that can cause timeouts",
+                type: "Identifier"
+            }]
+        }, {
             code: `query.doesNotExist('someKey');`,
             errors: [{
                 message: "`Parse.Query#doesNotExist()` it's a slow query that can cause timeouts",

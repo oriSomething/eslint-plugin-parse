@@ -27,6 +27,8 @@ eslintTester.addRuleTest("lib/rules/no-parse-promise-assign", {
                 });
             `
         }, {
+            code: `var p = new Promise(fn);`
+        }, {
             code: `
                 var query = new Parse.Query('Item')
                     .equalTo('happy', true)
