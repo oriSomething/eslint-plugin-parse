@@ -22,6 +22,8 @@ eslintTester.addRuleTest("lib/rules/does-not-exist", {
     valid: [
         {
             code: "new Parse.Query('_Installation').equalTo('noNotifications', null)"
+        }, {
+            code: "doesNotExist('noNotifications')"
         }
     ],
 
@@ -30,7 +32,13 @@ eslintTester.addRuleTest("lib/rules/does-not-exist", {
             code: "new Parse.Query('_Installation').doesNotExist('noNotifications')",
             errors: [{
                 message: "use equalTo('noNotifications', null) instead",
-                type: "CallExpression"
+                type: "Identifier"
+            }]
+        }, {
+            code: "query.doesNotExist('noNotifications')",
+            errors: [{
+                message: "use equalTo('noNotifications', null) instead",
+                type: "Identifier"
             }]
         }
     ]
