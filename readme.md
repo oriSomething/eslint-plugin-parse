@@ -36,6 +36,7 @@ After that, you can enable / disable rules by need, the default is:
     "rules": {
         "parse/does-not-exist": 2,
         "parse/global-master": 1,
+        "parse/no-not-query": 2,
         "parse/no-parse-promise-assign": 1,
         "parse/no-promise-always": 1,
         "parse/prefer-parse-promise": 1,
@@ -49,6 +50,7 @@ After that, you can enable / disable rules by need, the default is:
 
 * [does-not-exist](docs/rules/does-not-exist.md): Prevent using slow `Parse.Query#doesNotExist`
 * [global-master](docs/rules/global-master.md): Prevent using `Parse.Cloud.useMasterKey()`
+* [no-not-query](docs/rules/no-not-query.md): Prevent using "not query" functions of `Parse.Query`
 * [no-parse-promise-assign](docs/rules/no-parse-promise-assign.md): Prevent assign variable to `Parse.Promise` instance
 * [no-promise-always](docs/rules/no-promise-always.md): Prevent the use of `Parse.Promise#always`
 * [prefer-parse-promise](docs/rules/prefer-parse-promise.md): Prevent using callbacks `success` / `errors` instead of `Parse.Promise`

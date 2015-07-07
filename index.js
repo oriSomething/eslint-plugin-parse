@@ -2,6 +2,7 @@ module.exports = {
   rules: {
     "does-not-exist": require("./lib/rules/does-not-exist"),
     "global-master": require("./lib/rules/global-master"),
+    "no-not-query": require("./lib/rules/no-not-query"),
     "no-parse-promise-assign": require("./lib/rules/no-parse-promise-assign"),
     "prefer-parse-promise": require("./lib/rules/prefer-parse-promise"),
     "no-promise-always": require("./lib/rules/no-promise-always"),
@@ -10,6 +11,7 @@ module.exports = {
   rulesConfig: {
     "does-not-exist": 2,
     "global-master": 1,
+    "no-not-query": 2,
     "no-parse-promise-assign": 1,
     "prefer-parse-promise": 1,
     "no-promise-always": 1,
