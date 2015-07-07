@@ -5,8 +5,8 @@
     "author": "Ori Livni",
     "license": "MIT",
     "repository": {
-        "type" : "git",
-        "url" : "https://github.com/HappySale/eslint-plugin-parse"
+        "type": "git",
+        "url": "https://github.com/HappySale/eslint-plugin-parse"
     },
     "main": "index.js",
     "directories": {
