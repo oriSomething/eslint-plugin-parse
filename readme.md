@@ -39,6 +39,7 @@ After that, you can enable / disable rules by need, the default is:
         "parse/no-not-query": 2,
         "parse/no-parse-promise-assign": 1,
         "parse/no-promise-always": 1,
+        "parse/no-slow-query": 1,
         "parse/prefer-parse-promise": 1,
         "parse/save-with-master": 2
     }
@@ -53,6 +54,7 @@ After that, you can enable / disable rules by need, the default is:
 * [no-not-query](docs/rules/no-not-query.md): Prevent using "not query" functions of `Parse.Query`
 * [no-parse-promise-assign](docs/rules/no-parse-promise-assign.md): Prevent assign variable to `Parse.Promise` instance
 * [no-promise-always](docs/rules/no-promise-always.md): Prevent the use of `Parse.Promise#always`
+* [no-slow-query](docs/rules/no-slow-query.md): Prevent using `Parse.Query` slow functions
 * [prefer-parse-promise](docs/rules/prefer-parse-promise.md): Prevent using callbacks `success` / `errors` instead of `Parse.Promise`
 * [save-with-master](docs/rules/save-with-master.md): Prevent creating by mistake `useMasterKey` property when saving
 
