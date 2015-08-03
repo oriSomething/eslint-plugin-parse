@@ -10,15 +10,15 @@
 //------------------------------------------------------------------------------
 
 
-var eslint = require("eslint"),
-    ESLintTester = require("eslint-tester");
+var rule = require("../../../lib/rules/save-with-master"),
+    RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var eslintTester = new ESLintTester(eslint.linter);
-eslintTester.addRuleTest("lib/rules/save-with-master", {
+var ruleTester = new RuleTester();
+ruleTester.run("lib/rules/save-with-master", rule, {
 
     valid: [
         {

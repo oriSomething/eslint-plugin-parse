@@ -9,15 +9,15 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var eslint = require("eslint"),
-    ESLintTester = require("eslint-tester");
+var rule = require("../../../lib/rules/prefer-parse-promise"),
+    RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var eslintTester = new ESLintTester(eslint.linter);
-eslintTester.addRuleTest("lib/rules/prefer-parse-promise", {
+var ruleTester = new RuleTester();
+ruleTester.run("lib/rules/prefer-parse-promise", rule, {
 
     valid: [
         {

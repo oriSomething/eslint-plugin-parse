@@ -9,15 +9,15 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var eslint = require("eslint"),
-    ESLintTester = require("eslint-tester");
+var rule = require("../../../lib/rules/no-parse-promise-assign"),
+    RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var eslintTester = new ESLintTester(eslint.linter);
-eslintTester.addRuleTest("lib/rules/no-parse-promise-assign", {
+var ruleTester = new RuleTester();
+ruleTester.run("lib/rules/no-parse-promise-assign", rule, {
 
     valid: [
         {

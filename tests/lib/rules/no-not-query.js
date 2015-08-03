@@ -9,15 +9,15 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var eslint = require("eslint"),
-    ESLintTester = require("eslint-tester");
+var rule = require("../../../lib/rules/no-not-query"),
+    RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var eslintTester = new ESLintTester(eslint.linter);
-eslintTester.addRuleTest("lib/rules/no-not-query", {
+var ruleTester = new RuleTester();
+ruleTester.run("lib/rules/no-not-query", rule, {
 
     valid: [
         {

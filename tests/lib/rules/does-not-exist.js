@@ -9,15 +9,15 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var eslint = require("eslint"),
-    ESLintTester = require("eslint-tester");
+var rule = require("../../../lib/rules/does-not-exist"),
+    RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var eslintTester = new ESLintTester(eslint.linter);
-eslintTester.addRuleTest("lib/rules/does-not-exist", {
+var ruleTester = new RuleTester();
+ruleTester.run("lib/rules/does-not-exist", rule, {
 
     valid: [
         {

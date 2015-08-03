@@ -5,6 +5,7 @@
   "env": {
     "node": true
   },
+  "extends": "eslint:recommended",
   "rules": {
     "global-strict": [0]
   }
