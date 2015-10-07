@@ -49,14 +49,14 @@ After that, you can enable / disable rules by need, the default is:
 
 ## List of supported rules
 
-* [does-not-exist](docs/rules/does-not-exist.md): Prevent using slow `Parse.Query#doesNotExist`
-* [global-master](docs/rules/global-master.md): Prevent using `Parse.Cloud.useMasterKey()`
-* [no-not-query](docs/rules/no-not-query.md): Prevent using "not query" functions of `Parse.Query`
-* [no-parse-promise-assign](docs/rules/no-parse-promise-assign.md): Prevent assign variable to `Parse.Promise` instance
+* [does-not-exist](docs/rules/does-not-exist.md): Prevent the use of slow `Parse.Query#doesNotExist`
+* [global-master](docs/rules/global-master.md): Prevent the use of `Parse.Cloud.useMasterKey()`
+* [no-not-query](docs/rules/no-not-query.md): Prevent the use of "not query" functions of `Parse.Query`
+* [no-parse-promise-assign](docs/rules/no-parse-promise-assign.md): Prevent assigning a variable from a `Parse.Promise` instance
 * [no-promise-always](docs/rules/no-promise-always.md): Prevent the use of `Parse.Promise#always`
-* [no-slow-query](docs/rules/no-slow-query.md): Prevent using `Parse.Query` slow functions
-* [prefer-parse-promise](docs/rules/prefer-parse-promise.md): Prevent using callbacks `success` / `errors` instead of `Parse.Promise`
-* [save-with-master](docs/rules/save-with-master.md): Prevent creating by mistake `useMasterKey` property when saving
+* [no-slow-query](docs/rules/no-slow-query.md): Prevent the use of slow `Parse.Query` functions
+* [prefer-parse-promise](docs/rules/prefer-parse-promise.md): Prevent the use of `success` / `errors` callbacks instead of `Parse.Promise`
+* [save-with-master](docs/rules/save-with-master.md): Prevent creating a `useMasterKey` property by mistake when saving
 
 
 ## License
