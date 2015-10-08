@@ -38,7 +38,7 @@ ruleTester.run("lib/rules/global-master", rule, {
         {
             code: "Parse.Cloud.useMasterKey()",
             errors: [{
-                message: "The use of `Parse.Cloud.useMasterKey()` is discourage",
+                message: "The use of `Parse.Cloud.useMasterKey()` is discouraged",
                 type: "CallExpression"
             }]
         }
