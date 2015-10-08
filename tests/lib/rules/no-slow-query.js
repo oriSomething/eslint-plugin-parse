@@ -36,6 +36,10 @@ ruleTester.run("lib/rules/no-slow-query", rule, {
             code: `
                 'test'.exists('test');
             `
+        }, {
+            code: `
+                _.exists('test');
+            `
         }
     ],
 
@@ -51,92 +55,101 @@ ruleTester.run("lib/rules/no-slow-query", rule, {
                 type: "Identifier"
             }]
         }, {
-            code: `query.doesNotExist(someVar);`,
+            code: `
+                var query = new Parse.Query("Item");
+                query.doesNotExist("someKey");
+            `,
             errors: [{
                 message: "`Parse.Query#doesNotExist()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.doesNotExist('someKey');`,
+            code: `new Parse.Query("Item").doesNotExist(someVar);`,
             errors: [{
                 message: "`Parse.Query#doesNotExist()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.doesNotMatchKeyInQuery('someKey', 'someKeyKey', new Parse.Query('Item'));`,
+            code: `new Parse.Query("Item").doesNotExist('someKey');`,
+            errors: [{
+                message: "`Parse.Query#doesNotExist()` it's a slow query that can cause timeouts",
+                type: "Identifier"
+            }]
+        }, {
+            code: `new Parse.Query("Item").doesNotMatchKeyInQuery('someKey', 'someKeyKey', new Parse.Query('Item'));`,
             errors: [{
                 message: "`Parse.Query#doesNotMatchKeyInQuery()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.doesNotMatchQuery('someKey', new Parse.Query('Item'));`,
+            code: `new Parse.Query("Item").doesNotMatchQuery('someKey', new Parse.Query('Item'));`,
             errors: [{
                 message: "`Parse.Query#doesNotMatchQuery()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.endsWith('someKey', 'someValue');`,
+            code: `new Parse.Query("Item").endsWith('someKey', 'someValue');`,
             errors: [{
                 message: "`Parse.Query#endsWith()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.exists('someKey');`,
+            code: `new Parse.Query("Item").exists('someKey');`,
             errors: [{
                 message: "`Parse.Query#exists()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
 
         }, {
-            code: `query.matches('someKey', /regex/);`,
+            code: `new Parse.Query("Item").matches('someKey', /regex/);`,
             errors: [{
                 message: "`Parse.Query#matches()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.matches('someKey', /regex/i);`,
+            code: `new Parse.Query("Item").matches('someKey', /regex/i);`,
             errors: [{
                 message: "`Parse.Query#matches()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.matches('someKey', new RegExp("regex"));`,
+            code: `new Parse.Query("Item").matches('someKey', new RegExp("regex"));`,
             errors: [{
                 message: "`Parse.Query#matches()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.matches('someKey', new RegExp("regex"), "i");`,
+            code: `new Parse.Query("Item").matches('someKey', new RegExp("regex"), "i");`,
             errors: [{
                 message: "`Parse.Query#matches()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.notContainedIn('someKey', []);`,
+            code: `new Parse.Query("Item").notContainedIn('someKey', []);`,
             errors: [{
                 message: "`Parse.Query#notContainedIn()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.notContainedIn('someKey', 1 ? [] : []);`,
+            code: `new Parse.Query("Item").notContainedIn('someKey', 1 ? [] : []);`,
             errors: [{
                 message: "`Parse.Query#notContainedIn()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.notContainedIn('someKey', [1, 2, 3]);`,
+            code: `new Parse.Query("Item").notContainedIn('someKey', [1, 2, 3]);`,
             errors: [{
                 message: "`Parse.Query#notContainedIn()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.notEqualTo('someKey', 'hello');`,
+            code: `new Parse.Query("Item").notEqualTo('someKey', 'hello');`,
             errors: [{
                 message: "`Parse.Query#notEqualTo()` it's a slow query that can cause timeouts",
                 type: "Identifier"
             }]
         }, {
-            code: `query.startsWith('someKey', 'hello');`,
+            code: `new Parse.Query("Item").startsWith('someKey', 'hello');`,
             errors: [{
                 message: "`Parse.Query#startsWith()` it's a slow query that can cause timeouts",
                 type: "Identifier"
