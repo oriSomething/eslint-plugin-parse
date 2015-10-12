@@ -1,17 +1,13 @@
-# Don't assign variables explicitly to Parse.Promise instance (no-parse-promise-assign)
+# Don't assign variables explicitly to a `Parse.Promise` instance (no-parse-promise-assign)
 
-Using the deffer function pattern as the `Parse.Promise` object is, can be
-problematic:
-- it's [Promises/A+](https://promisesaplus.com/), so the **name** confusing, so…
-- there is a change you will forget to `resolve` or `reject`
+Using the "defer function" pattern is not recommended:
+- the name does not match [Promises/A+](https://promisesaplus.com/). `as()` vs `resolve()`
+- there is a chance you will forget to `resolve` or `reject`
 - on the browser or node, it would be better to use [Promises/A+](https://promisesaplus.com/)
-- on `Parse Cloud Code`, you cannot use async functions such as `setTimeout`
-which aren't belong to the `Parse JavaScript SDK` so you never actually have a
-reason to create `Parse.Promise` instance
-- assign `Parse.Promise.as` or `Parse.Promise.error` is also a bad pattern,
-because it means you might forget about it when you return the promise or you
-will override it by mistake
-
+- on `Parse Cloud Code`, you cannot use async functions (such as `setTimeout`)
+which don't belong to the `Parse JavaScript SDK` so you never actually need to use this functionality to convert from async to Promises
+- assigning `Parse.Promise.as` or `Parse.Promise.error` is also a bad pattern.
+You might forget about it when you return the promise or you will override it by mistake
 
 ## Rule Details
 
@@ -19,9 +15,9 @@ The following patterns are considered warnings:
 
 ```js
 // It's not recommend, because it confusing because:
-// - it's deffer function
+// - it's a defered function
 // - on browser / node, better use Promise/A+
-// - on Parse Cloud Code, there is no point using it
+// - on Parse Cloud Code, there is no point in using it
 var promise = new Parse.Promise();
 
 ```
@@ -31,7 +27,7 @@ function badFunction(param) {
     var promise = Parse.Promise.as('hi');
 
     if (param) {
-        // Or Forget reassign or
+        // You might forget to reassign or
         // return something else
     }
 
@@ -43,7 +39,7 @@ function badFunction(param) {
 The following patterns are not warnings:
 
 ```js
-// It's okay, because it's a directly creation of Parse.Promise instance
+// It's okay, because it's an indirect creation of a Parse.Promise instance
 var query = new Parse.Query('Item')
     .equalTo('happy', true)
     .find();
