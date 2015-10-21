@@ -26,6 +26,11 @@ ruleTester.run("lib/rules/no-slow-query", rule, {
             `
         }, {
             code: `
+                hi();
+                doesNotExist('test');
+            `
+        }, {
+            code: `
                 someObject.exists();
             `
         }, {
@@ -40,6 +45,11 @@ ruleTester.run("lib/rules/no-slow-query", rule, {
             code: `
                 _.exists('test');
             `
+        }, {
+            code: `
+                // ok when there is no assignment to a new Parse.Query
+                query.exists('test');
+            `
         }
     ],
 
@@ -48,6 +58,16 @@ ruleTester.run("lib/rules/no-slow-query", rule, {
         {
             code: `
                 new Parse.Query("Item")
+                    .doesNotExist("someKey");
+            `,
+            errors: [{
+                message: "`Parse.Query#doesNotExist()` it's a slow query that can cause timeouts",
+                type: "Identifier"
+            }]
+        }, {
+            code: `
+                new Parse.Query("Item")
+                    .bullshit()
                     .doesNotExist("someKey");
             `,
             errors: [{
