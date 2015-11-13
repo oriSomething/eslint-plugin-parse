@@ -53,7 +53,7 @@ ruleTester.run("lib/rules/no-parse-promise-assign", rule, {
         {
             code: `var p = new Parse.Promise();`,
             errors: [{
-                message: "create `Parse.Promise` instances directly",
+                message: "Don't create `Parse.Promise` instances directly",
                 type: "NewExpression"
             }]
         }, {
@@ -62,7 +62,7 @@ ruleTester.run("lib/rules/no-parse-promise-assign", rule, {
                 var p = new Promise();
             `,
             errors: [{
-                message: "create `Parse.Promise` instances directly",
+                message: "Don't create `Parse.Promise` instances directly",
                 type: "NewExpression"
             }]
         }, {
