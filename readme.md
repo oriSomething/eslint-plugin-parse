@@ -1,4 +1,4 @@
-eslint-plugin-parse
+eslint-plugin-parse [![Build Status](https://travis-ci.org/oriSomething/eslint-plugin-parse.svg)](https://travis-ci.org/oriSomething/eslint-plugin-parse)
 ===
 
 ESLint plugin for working with [Parse](https://parse.com/).
